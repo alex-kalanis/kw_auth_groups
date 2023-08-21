@@ -21,8 +21,8 @@ use MockUser;
 abstract class ACompositeTest extends CommonTestClass
 {
     /**
-     * @return sources_access\SourcesAdapters\AAdapter
      * @throws AuthSourcesException
+     * @return sources_access\SourcesAdapters\AAdapter
      */
     protected function getFilledSources(): sources_access\SourcesAdapters\AAdapter
     {
