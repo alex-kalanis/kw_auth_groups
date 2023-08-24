@@ -3,10 +3,10 @@
 namespace SourcesTests;
 
 
-use kalanis\kw_auth_sources\AuthSourcesException;
-use kalanis\kw_auth_sources\Data\FileGroup;
-use kalanis\kw_auth_sources\Interfaces\IWorkGroups;
-use kalanis\kw_auth_sources\Interfaces\IGroup;
+use kalanis\kw_accounts\AccountsException;
+use kalanis\kw_accounts\Data\FileGroup;
+use kalanis\kw_accounts\Interfaces\IProcessGroups;
+use kalanis\kw_accounts\Interfaces\IGroup;
 use kalanis\kw_auth_groups\Sources\KwAuth;
 use kalanis\kw_groups\GroupsException;
 
@@ -54,7 +54,7 @@ class KwAuthTest extends \CommonTestClass
  *
  * -> extra is in both admin and root group
  */
-class XAccessGroups implements IWorkGroups
+class XAccessGroups implements IProcessGroups
 {
     /** @var IGroup[] */
     protected $internal = [];
@@ -132,30 +132,30 @@ class XAccessGroups implements IWorkGroups
 }
 
 
-class XFailedGroups implements IWorkGroups
+class XFailedGroups implements IProcessGroups
 {
     public function createGroup(IGroup $group): bool
     {
-        throw new AuthSourcesException('mock');
+        throw new AccountsException('mock');
     }
 
     public function getGroupDataOnly(string $groupId): ?IGroup
     {
-        throw new AuthSourcesException('mock');
+        throw new AccountsException('mock');
     }
 
     public function readGroup(): array
     {
-        throw new AuthSourcesException('mock');
+        throw new AccountsException('mock');
     }
 
     public function updateGroup(IGroup $group): bool
     {
-        throw new AuthSourcesException('mock');
+        throw new AccountsException('mock');
     }
 
     public function deleteGroup(string $groupId): bool
     {
-        throw new AuthSourcesException('mock');
+        throw new AccountsException('mock');
     }
 }

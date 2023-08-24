@@ -3,20 +3,18 @@
 namespace AccessTests;
 
 
+use kalanis\kw_accounts\AccountsException;
 use kalanis\kw_auth_groups\Access;
 use kalanis\kw_auth_sources\Access as sources_access;
-use kalanis\kw_auth_sources\AuthSourcesException;
 use kalanis\kw_auth_sources\Sources;
 use kalanis\kw_groups\GroupsException;
-use kalanis\kw_locks\LockException;
 
 
 class CompositeTest extends ACompositeTest
 {
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testBasic(): void
     {
@@ -49,7 +47,7 @@ class CompositeTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
      */
     public function testUserSet(): void
@@ -65,9 +63,8 @@ class CompositeTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testCerts(): void
     {
@@ -82,9 +79,8 @@ class CompositeTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testSysUser(): void
     {

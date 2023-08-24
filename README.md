@@ -15,7 +15,7 @@ Groups using kw_* authentication sources inside the kw_* project.
 ```
 {
     "require": {
-        "alex-kalanis/kw_auth_groups": ">=1.0"
+        "alex-kalanis/kw_auth_groups": ">=1.1"
     }
 }
 ```

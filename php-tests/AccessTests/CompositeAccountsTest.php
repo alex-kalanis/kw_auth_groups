@@ -3,19 +3,17 @@
 namespace AccessTests;
 
 
+use kalanis\kw_accounts\AccountsException;
+use kalanis\kw_accounts\Interfaces;
 use kalanis\kw_auth_groups\Access;
-use kalanis\kw_auth_sources\Interfaces;
-use kalanis\kw_auth_sources\AuthSourcesException;
 use kalanis\kw_groups\GroupsException;
-use kalanis\kw_locks\LockException;
 
 
 class CompositeAccountsTest extends ACompositeTest
 {
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetDataMine(): void
     {
@@ -28,9 +26,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetDataSystem(): void
     {
@@ -43,9 +40,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetDataChildren(): void
     {
@@ -58,9 +54,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetDataParent(): void
     {
@@ -71,9 +66,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetDataForeigner(): void
     {
@@ -84,9 +78,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetCertDataMine(): void
     {
@@ -99,9 +92,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetCertDataSystem(): void
     {
@@ -114,9 +106,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetCertDataChildren(): void
     {
@@ -129,9 +120,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetCertDataParent(): void
     {
@@ -142,9 +132,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testGetCertDataForeigner(): void
     {
@@ -155,9 +144,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testCreateUserSystem(): void
     {
@@ -168,9 +156,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testCreateUserAnyoneElse(): void
     {
@@ -181,9 +168,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testReadAccountsSystem(): void
     {
@@ -214,9 +200,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testReadAccountsAnyoneElse(): void
     {
@@ -228,9 +213,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateAccountMine(): void
     {
@@ -241,9 +225,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateAccountSystem(): void
     {
@@ -254,9 +237,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateAccountChildren(): void
     {
@@ -267,9 +249,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateAccountParent(): void
     {
@@ -280,9 +261,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateAccountForeigner(): void
     {
@@ -293,9 +273,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdatePasswordMine(): void
     {
@@ -306,9 +285,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdatePasswordSystem(): void
     {
@@ -319,9 +297,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdatePasswordChildren(): void
     {
@@ -332,9 +309,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdatePasswordParent(): void
     {
@@ -345,9 +321,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdatePasswordForeigner(): void
     {
@@ -358,9 +333,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateCertsMine(): void
     {
@@ -371,9 +345,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateCertsSystem(): void
     {
@@ -384,9 +357,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateCertsChildren(): void
     {
@@ -397,9 +369,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateCertsParent(): void
     {
@@ -410,9 +381,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testUpdateCertsForeigner(): void
     {
@@ -423,9 +393,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testDeleteAccountMine(): void
     {
@@ -436,9 +405,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testDeleteAccountSystem(): void
     {
@@ -449,9 +417,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testDeleteAccountChildren(): void
     {
@@ -462,9 +429,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testDeleteAccountParent(): void
     {
@@ -475,9 +441,8 @@ class CompositeAccountsTest extends ACompositeTest
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      */
     public function testDeleteAccountForeigner(): void
     {

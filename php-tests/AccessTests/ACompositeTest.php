@@ -4,10 +4,10 @@ namespace AccessTests;
 
 
 use CommonTestClass;
-use kalanis\kw_auth_sources\Data;
+use kalanis\kw_accounts\AccountsException;
+use kalanis\kw_accounts\Data;
+use kalanis\kw_accounts\Interfaces as sources_interfaces;
 use kalanis\kw_auth_sources\Access as sources_access;
-use kalanis\kw_auth_sources\AuthSourcesException;
-use kalanis\kw_auth_sources\Interfaces as sources_interfaces;
 use kalanis\kw_auth_sources\Sources;
 use kalanis\kw_auth_sources\Hashes;
 use MockGroup;
@@ -21,7 +21,7 @@ use MockUser;
 abstract class ACompositeTest extends CommonTestClass
 {
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @return sources_access\SourcesAdapters\AAdapter
      */
     protected function getFilledSources(): sources_access\SourcesAdapters\AAdapter

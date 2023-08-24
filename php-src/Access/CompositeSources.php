@@ -3,14 +3,13 @@
 namespace kalanis\kw_auth_groups\Access;
 
 
-use kalanis\kw_auth_sources\AuthSourcesException;
-use kalanis\kw_auth_sources\Interfaces;
+use kalanis\kw_accounts\AccountsException;
+use kalanis\kw_accounts\Interfaces;
 use kalanis\kw_auth_sources\Access as source_access;
 use kalanis\kw_auth_groups\Sources\KwAuth;
 use kalanis\kw_groups\GroupsException;
 use kalanis\kw_groups\Interfaces\IProcessor;
 use kalanis\kw_groups\Processor\Basic;
-use kalanis\kw_locks\LockException;
 
 
 /**
@@ -34,9 +33,8 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param string $userName
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return Interfaces\IUser|null
      */
     public function getDataOnly(string $userName): ?Interfaces\IUser
@@ -50,9 +48,8 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param string $userName
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return Interfaces\IUserCert|null
      */
     public function getCertData(string $userName): ?Interfaces\IUserCert
@@ -67,9 +64,8 @@ class CompositeSources extends source_access\CompositeSources
     /**
      * @param Interfaces\IUser $user
      * @param string $password
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return bool
      */
     public function createAccount(Interfaces\IUser $user, string $password): bool
@@ -82,9 +78,8 @@ class CompositeSources extends source_access\CompositeSources
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return Interfaces\IUser[]
      */
     public function readAccounts(): array
@@ -102,9 +97,8 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param Interfaces\IUser $user
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return bool
      */
     public function updateAccount(Interfaces\IUser $user): bool
@@ -118,9 +112,8 @@ class CompositeSources extends source_access\CompositeSources
     /**
      * @param string $userName
      * @param string $passWord
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return bool
      */
     public function updatePassword(string $userName, string $passWord): bool
@@ -136,9 +129,8 @@ class CompositeSources extends source_access\CompositeSources
      * @param string $userName
      * @param string|null $certKey
      * @param string|null $certSalt
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return bool
      */
     public function updateCertKeys(string $userName, ?string $certKey, ?string $certSalt): bool
@@ -152,9 +144,8 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param string $userName
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return bool
      */
     public function deleteAccount(string $userName): bool
@@ -184,9 +175,8 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param Interfaces\IGroup $group
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return bool
      */
     public function createGroup(Interfaces\IGroup $group): bool
@@ -210,9 +200,8 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param string $groupId
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return Interfaces\IGroup|null
      */
     public function getGroupDataOnly(string $groupId): ?Interfaces\IGroup
@@ -236,9 +225,8 @@ class CompositeSources extends source_access\CompositeSources
     }
 
     /**
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return Interfaces\IGroup[]
      */
     public function readGroup(): array
@@ -255,9 +243,8 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param Interfaces\IGroup $group
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return bool
      */
     public function updateGroup(Interfaces\IGroup $group): bool
@@ -270,9 +257,8 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param string $groupId
-     * @throws AuthSourcesException
+     * @throws AccountsException
      * @throws GroupsException
-     * @throws LockException
      * @return bool
      */
     public function deleteGroup(string $groupId): bool
@@ -289,17 +275,17 @@ class CompositeSources extends source_access\CompositeSources
         return $this;
     }
 
-    public function getAccounts(): Interfaces\IWorkAccounts
+    public function getAccounts(): Interfaces\IProcessAccounts
     {
         return $this;
     }
 
-    public function getGroups(): Interfaces\IWorkGroups
+    public function getGroups(): Interfaces\IProcessGroups
     {
         return $this;
     }
 
-    public function getClasses(): Interfaces\IWorkClasses
+    public function getClasses(): Interfaces\IProcessClasses
     {
         return $this;
     }
@@ -394,7 +380,7 @@ class CompositeSources extends source_access\CompositeSources
      */
     protected function isMaintainer(): bool
     {
-        return Interfaces\IWorkClasses::CLASS_MAINTAINER == $this->getCurrentUser()->getClass();
+        return Interfaces\IProcessClasses::CLASS_MAINTAINER == $this->getCurrentUser()->getClass();
     }
 
     /**
@@ -406,7 +392,7 @@ class CompositeSources extends source_access\CompositeSources
     {
         $current = $this->getCurrentUser();
         return
-            Interfaces\IWorkClasses::CLASS_ADMIN == $current->getClass()
+            Interfaces\IProcessClasses::CLASS_ADMIN == $current->getClass()
             && (
                 $group->getGroupAuthorId() == $current->getAuthId()
                 || (
@@ -434,8 +420,7 @@ class CompositeSources extends source_access\CompositeSources
 
     /**
      * @param Interfaces\IGroup $group
-     * @throws AuthSourcesException
-     * @throws LockException
+     * @throws AccountsException
      * @return bool
      */
     protected function hasChildren(Interfaces\IGroup $group): bool

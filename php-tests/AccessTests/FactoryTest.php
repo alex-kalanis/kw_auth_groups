@@ -6,9 +6,7 @@ namespace AccessTests;
 use CommonTestClass;
 use kalanis\kw_auth_groups\Access;
 use kalanis\kw_auth_sources\AuthSourcesException;
-use kalanis\kw_files\FilesException;
 use kalanis\kw_locks\LockException;
-use kalanis\kw_paths\PathsException;
 
 
 class FactoryTest extends CommonTestClass
@@ -26,10 +24,6 @@ class FactoryTest extends CommonTestClass
     }
 
     /**
-     * @throws AuthSourcesException
-     * @throws FilesException
-     * @throws LockException
-     * @throws PathsException
      * @return array
      */
     public function passProvider(): array

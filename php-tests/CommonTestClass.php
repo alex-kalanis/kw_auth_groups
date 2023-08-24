@@ -1,6 +1,6 @@
 <?php
 
-use kalanis\kw_auth_sources\Interfaces as sources_interfaces;
+use kalanis\kw_accounts\Interfaces as sources_interfaces;
 use PHPUnit\Framework\TestCase;
 
 
