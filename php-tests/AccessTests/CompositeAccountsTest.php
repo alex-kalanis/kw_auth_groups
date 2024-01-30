@@ -341,7 +341,7 @@ class CompositeAccountsTest extends ACompositeTest
         $lib = new Access\CompositeSources($this->getFilledSources());
         $lib->setCurrentUser(new KnownUser());
 
-        $this->assertTrue($lib->updateCertKeys('worker', 'not important', 'not important'));
+        $this->assertTrue($lib->updateCertData('worker', 'not important', 'not important'));
     }
 
     /**
@@ -353,7 +353,7 @@ class CompositeAccountsTest extends ACompositeTest
         $lib = new Access\CompositeSources($this->getFilledSources());
         $lib->setCurrentUser(new SysUser());
 
-        $this->assertTrue($lib->updateCertKeys('fooz', 'not important', 'not important'));
+        $this->assertTrue($lib->updateCertData('fooz', 'not important', 'not important'));
     }
 
     /**
@@ -365,7 +365,7 @@ class CompositeAccountsTest extends ACompositeTest
         $lib = new Access\CompositeSources($this->getFilledSources());
         $lib->setCurrentUser(new KnownUser());
 
-        $this->assertTrue($lib->updateCertKeys('barz', 'not important', 'not important'));
+        $this->assertTrue($lib->updateCertData('barz', 'not important', 'not important'));
     }
 
     /**
@@ -377,7 +377,7 @@ class CompositeAccountsTest extends ACompositeTest
         $lib = new Access\CompositeSources($this->getFilledSources());
         $lib->setCurrentUser(new KnownUser2());
 
-        $this->assertFalse($lib->updateCertKeys('worker', 'not important', 'not important'));
+        $this->assertFalse($lib->updateCertData('worker', 'not important', 'not important'));
     }
 
     /**
@@ -389,7 +389,7 @@ class CompositeAccountsTest extends ACompositeTest
         $lib = new Access\CompositeSources($this->getFilledSources());
         $lib->setCurrentUser(new \MockUser());
 
-        $this->assertFalse($lib->updateCertKeys('fooz', 'not important', 'not important'));
+        $this->assertFalse($lib->updateCertData('fooz', 'not important', 'not important'));
     }
 
     /**

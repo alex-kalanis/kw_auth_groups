@@ -50,13 +50,13 @@ class CompositeSources extends source_access\CompositeSources
      * @param string $userName
      * @throws AccountsException
      * @throws GroupsException
-     * @return Interfaces\IUserCert|null
+     * @return Interfaces\ICert|null
      */
-    public function getCertData(string $userName): ?Interfaces\IUserCert
+    public function getCertData(string $userName): ?Interfaces\ICert
     {
-        $data = parent::getCertData($userName);
+        $data = parent::getDataOnly($userName);
         return $data && $this->canAccessUser($data)
-            ? $data
+            ? parent::getCertData($userName)
             : null
         ;
     }
@@ -70,7 +70,6 @@ class CompositeSources extends source_access\CompositeSources
      */
     public function createAccount(Interfaces\IUser $user, string $password): bool
     {
-//print_r(['data', intval($this->isMe($user)), intval($this->accessUserByClass($user)), intval($this->currentUserIsRepresented($user)), intval($this->currentUserRepresents($user)), ]);
         return $this->canAccessUserByClassId($user->getClass()) && !$this->currentUserRepresents($user)
             ? parent::createAccount($user, $password)
             : false
@@ -133,11 +132,11 @@ class CompositeSources extends source_access\CompositeSources
      * @throws GroupsException
      * @return bool
      */
-    public function updateCertKeys(string $userName, ?string $certKey, ?string $certSalt): bool
+    public function updateCertData(string $userName, ?string $certKey, ?string $certSalt): bool
     {
         $user = $this->getDataOnly($userName);
         return $user && $this->canAccessUser($user)
-            ? parent::updateCertKeys($userName, $certKey, $certSalt)
+            ? parent::updateCertData($userName, $certKey, $certSalt)
             : false
         ;
     }

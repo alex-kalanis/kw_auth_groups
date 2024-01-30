@@ -28,7 +28,7 @@ class CompositeTest extends ACompositeTest
         $lib->setCurrentUser(new \MockUser());
 
         $this->assertNull($lib->getDataOnly('whatever'));
-        $this->assertFalse($lib->updateCertKeys('whatever', null, null));
+        $this->assertFalse($lib->updateCertData('whatever', null, null));
         $this->assertNull($lib->getCertData('whatever'));
 
         $this->assertFalse($lib->createAccount(new \MockUser(), 'not important'));
@@ -74,7 +74,7 @@ class CompositeTest extends ACompositeTest
 
         $this->assertNull($lib->authenticate('whatever', ['password' => 'any']));
         $this->assertNull($lib->getDataOnly('whatever'));
-        $this->assertFalse($lib->updateCertKeys('whatever', null, null));
+        $this->assertFalse($lib->updateCertData('whatever', null, null));
         $this->assertNull($lib->getCertData('whatever'));
     }
 
@@ -88,7 +88,7 @@ class CompositeTest extends ACompositeTest
         $lib->setCurrentUser(new SysUser());
 
         $this->assertNull($lib->getDataOnly('whatever'));
-        $this->assertFalse($lib->updateCertKeys('whatever', null, null));
+        $this->assertFalse($lib->updateCertData('whatever', null, null));
         $this->assertNull($lib->getCertData('whatever'));
 
         $this->assertTrue($lib->createAccount(new \MockUser(), 'not important'));
