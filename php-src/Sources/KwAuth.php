@@ -17,8 +17,7 @@ use kalanis\kw_groups\Interfaces\ISource;
  */
 class KwAuth implements ISource
 {
-    /** @var Interfaces\IProcessGroups */
-    protected $lib = null;
+    protected Interfaces\IProcessGroups $lib;
 
     public function __construct(Interfaces\IProcessGroups $lib)
     {

@@ -5,6 +5,7 @@ namespace AccessTests;
 
 use kalanis\kw_accounts\AccountsException;
 use kalanis\kw_auth_groups\Access;
+use kalanis\kw_auth_sources\AuthSourcesException;
 use kalanis\kw_groups\GroupsException;
 
 
@@ -12,6 +13,7 @@ class CompositeGroupsTest extends ACompositeTest
 {
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupsSystem(): void
@@ -25,6 +27,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupsAdmin(): void
@@ -38,6 +41,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupsPlebs(): void
@@ -50,6 +54,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupsForeigner(): void
@@ -62,6 +67,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupDataMine(): void
@@ -76,6 +82,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupDataSystem(): void
@@ -98,6 +105,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupDataChildren(): void
@@ -115,6 +123,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupDataParent(): void
@@ -127,6 +136,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupDataForeigner(): void
@@ -139,6 +149,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetGroupDataUnknown(): void
@@ -151,6 +162,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testCreateGroupSystem(): void
@@ -165,6 +177,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testCreateGroupAdmin(): void
@@ -179,6 +192,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testCreateGroupAnyone(): void
@@ -193,6 +207,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testCreateGroupForeigner(): void
@@ -207,6 +222,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testUpdateGroupSystem(): void
@@ -222,6 +238,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testUpdateGroupAdmin(): void
@@ -237,6 +254,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testUpdateGroupAnyone(): void
@@ -251,6 +269,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testUpdateGroupForeigner(): void
@@ -265,6 +284,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testDeleteGroupSystem(): void
@@ -279,6 +299,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testDeleteGroupAdmin(): void
@@ -293,6 +314,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testDeleteGroupAnyone(): void
@@ -307,6 +329,7 @@ class CompositeGroupsTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testDeleteGroupForeigner(): void

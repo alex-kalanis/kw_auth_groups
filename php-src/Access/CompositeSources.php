@@ -7,6 +7,7 @@ use kalanis\kw_accounts\AccountsException;
 use kalanis\kw_accounts\Interfaces;
 use kalanis\kw_auth_sources\Access as source_access;
 use kalanis\kw_auth_groups\Sources\KwAuth;
+use kalanis\kw_auth_sources\AuthSourcesException;
 use kalanis\kw_groups\GroupsException;
 use kalanis\kw_groups\Interfaces\IProcessor;
 use kalanis\kw_groups\Processor\Basic;
@@ -20,11 +21,14 @@ use kalanis\kw_groups\Processor\Basic;
  */
 class CompositeSources extends source_access\CompositeSources
 {
-    /** @var IProcessor */
-    protected $libGroup = null;
-    /** @var Interfaces\IUser|null */
-    protected $currentUser = null;
+    protected IProcessor $libGroup;
+    protected ?Interfaces\IUser $currentUser = null;
 
+    /**
+     * @param source_access\SourcesAdapters\AAdapter $adapter
+     * @param IProcessor|null $libGroup
+     * @throws AuthSourcesException
+     */
     public function __construct(source_access\SourcesAdapters\AAdapter $adapter, ?IProcessor $libGroup = null)
     {
         parent::__construct($adapter);
@@ -257,6 +261,7 @@ class CompositeSources extends source_access\CompositeSources
     /**
      * @param string $groupId
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      * @return bool
      */
@@ -420,6 +425,7 @@ class CompositeSources extends source_access\CompositeSources
     /**
      * @param Interfaces\IGroup $group
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @return bool
      */
     protected function hasChildren(Interfaces\IGroup $group): bool

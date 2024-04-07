@@ -5,6 +5,7 @@ namespace AccessTests;
 
 use kalanis\kw_accounts\AccountsException;
 use kalanis\kw_auth_groups\Access;
+use kalanis\kw_auth_sources\AuthSourcesException;
 use kalanis\kw_groups\GroupsException;
 
 
@@ -12,6 +13,7 @@ class CompositeClassesTest extends ACompositeTest
 {
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetClassesSystem(): void
@@ -26,6 +28,7 @@ class CompositeClassesTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetClassesAdmin(): void
@@ -40,6 +43,7 @@ class CompositeClassesTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetClassesPlebs(): void
@@ -52,6 +56,7 @@ class CompositeClassesTest extends ACompositeTest
 
     /**
      * @throws AccountsException
+     * @throws AuthSourcesException
      * @throws GroupsException
      */
     public function testGetClassesForeigner(): void
